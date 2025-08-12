@@ -25,3 +25,13 @@ Successfully replaced the default Nginx welcome page with a custom "Hello World"
     - Used `sudo` to gain the necessary privileges to create and edit files in the root-owned web directory.
     - Created a new `index.html` file, which Nginx automatically serves by default, effectively deploying a custom webpage.
 - **Outcome:** Hosted a personalized static website, accessible globally via the EC2 instance's public IP address.
+
+## 5. Lab: Integrating S3 for Static Asset Storage
+To optimize the web application, I leveraged **AWS S3** for storing and serving static assets (images).
+- **Process:**
+    - Created a new, globally unique S3 bucket.
+    - Configured the bucket's **Public Access Block** settings to allow public read access, a necessary step for web hosting.
+    - Uploaded an image object to the bucket.
+    - Explicitly set the object's permissions (Access Control List - ACL) to be publicly readable.
+    - Modified the `index.html` file on the EC2 instance to reference the image using its S3 **Object URL**.
+- **Outcome:** Successfully decoupled static content from the application server. The EC2 instance now only serves the HTML, while the image is served directly from S3, improving performance and scalability.
