@@ -35,3 +35,12 @@ To optimize the web application, I leveraged **AWS S3** for storing and serving 
     - Explicitly set the object's permissions (Access Control List - ACL) to be publicly readable.
     - Modified the `index.html` file on the EC2 instance to reference the image using its S3 **Object URL**.
 - **Outcome:** Successfully decoupled static content from the application server. The EC2 instance now only serves the HTML, while the image is served directly from S3, improving performance and scalability.
+
+## 6. Lab: DNS Configuration with Route 53
+To provide a professional and user-friendly access point to the web application, I registered a custom domain name and configured DNS using **AWS Route 53**.
+- **Process:**
+    - Registered a new domain directly through the AWS Route 53 service.
+    - A **Hosted Zone** for the domain was automatically created.
+    - Created an **`A` Record** within the hosted zone.
+    - This `A` record maps the domain name directly to the **Public IPv4 address** of the EC2 instance.
+- **Outcome:** The web application is now accessible via a custom domain name (e.g., `http://my-awesome-domain.com`) instead of a hard-to-remember IP address. This is a fundamental step for any production-grade web service.
