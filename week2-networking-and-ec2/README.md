@@ -44,3 +44,12 @@ To provide a professional and user-friendly access point to the web application,
     - Created an **`A` Record** within the hosted zone.
     - This `A` record maps the domain name directly to the **Public IPv4 address** of the EC2 instance.
 - **Outcome:** The web application is now accessible via a custom domain name (e.g., `http://my-awesome-domain.com`) instead of a hard-to-remember IP address. This is a fundamental step for any production-grade web service.
+
+## 7. Lab: Securing the Web Server with HTTPS
+To ensure secure communication and build user trust, I implemented HTTPS on the web server.
+- **Process:**
+    - Leveraged **Let's Encrypt**, a free and automated Certificate Authority, to obtain an SSL/TLS certificate.
+    - Installed **Certbot** and its Nginx plugin (`python3-certbot-nginx`) on the EC2 instance.
+    - Ran the `certbot` command, which automatically verified domain ownership, fetched the certificate, and modified the Nginx configuration.
+    - Opted to automatically redirect all insecure `HTTP` traffic to secure `HTTPS`.
+- **Outcome:** The website is now served over HTTPS, with a valid SSL certificate, indicated by the lock icon 🔒 in the browser. All traffic between the user and the server is now encrypted. This is a standard requirement for all modern web applications.
