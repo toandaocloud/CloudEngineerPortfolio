@@ -25,3 +25,11 @@ I refactored the initial Terraform configuration to use variables, making the co
     - Updated `main.tf` to reference the variables using the `var.` syntax (e.g., `var.aws_region`).
     - Created a `.gitignore` file to explicitly exclude `terraform.tfvars` from version control, which is a critical security best practice.
 - **Outcome:** The infrastructure code is now parameterized. To deploy the same infrastructure in a different region or with a different instance size, I only need to change the values in the `.tfvars` file, without touching the core logic in `main.tf`.
+
+## 3. Lab: Using Terraform Outputs
+To improve the workflow and retrieve important information programmatically after deployment, I implemented **Terraform Outputs**.
+- **Process:**
+    - Created a new `outputs.tf` file to declare output values.
+    - Defined outputs for the EC2 instance's **Public IP Address** and **Instance ID**.
+    - The `value` of each output references attributes from the `aws_instance` resource created in `main.tf` (e.g., `aws_instance.my_first_server_tf.public_ip`).
+- **Outcome:** After running `terraform apply`, Terraform now automatically prints the crucial access information like the server's IP address directly to the console. This eliminates the need to manually look up this information in the AWS Console, making the workflow faster and more scriptable.
