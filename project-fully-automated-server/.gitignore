@@ -1,0 +1,15 @@
+# Local .tfvars files
+*.tfvars
+
+# .tfstate files
+terraform.tfstate
+terraform.tfstate.backup
+
+# Crash log files
+crash.log
+
+# Exclude all .tfstate* files recursively in all folders
+**/.tfstate*
+
+# Local Terraform directories
+.terraform/
