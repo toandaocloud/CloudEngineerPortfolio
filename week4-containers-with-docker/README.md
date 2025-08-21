@@ -24,3 +24,17 @@ Containers are critical for DevOps and modern software development. They provide
 - **Consistency:** Guarantees that software will run the same, regardless of where it is deployed.
 - **Efficiency:** Containers are lightweight and start up much faster than traditional virtual machines.
 - **Portability:** A container built on a developer's laptop can be deployed to any cloud provider without changes.
+
+## 3. Lab: Building a Custom Image with a Dockerfile
+I moved from using pre-built images to creating my own custom Docker image using a `Dockerfile`.
+- **Process:**
+    - Created a simple `index.html` file for a custom webpage.
+    - Wrote a `Dockerfile` with two key instructions:
+        1.  **`FROM nginx:latest`**: To use the official Nginx image as a base layer.
+        2.  **`COPY index.html /usr/share/nginx/html/`**: To copy the custom webpage into the image's default web root directory.
+    - Used the `docker build -t <image-name> .` command to build the custom image from the Dockerfile.
+    - Ran a new container from my custom image and verified that it served the personalized webpage.
+- **Outcome:** Successfully built and ran a self-contained, portable Docker image with a custom application inside.
+
+## Business Value
+Writing Dockerfiles is a fundamental DevOps skill. It allows teams to create standardized, version-controlled build artifacts. This ensures that every developer and every server (dev, staging, production) runs the exact same software, eliminating environment-specific bugs and dramatically simplifying the deployment process.
