@@ -38,3 +38,15 @@ I moved from using pre-built images to creating my own custom Docker image using
 
 ## Business Value
 Writing Dockerfiles is a fundamental DevOps skill. It allows teams to create standardized, version-controlled build artifacts. This ensures that every developer and every server (dev, staging, production) runs the exact same software, eliminating environment-specific bugs and dramatically simplifying the deployment process.
+
+## 4. Lab: Publishing Images to a Container Registry
+To make my custom image shareable and accessible for deployment on any server, I published it to **Docker Hub**, a public container registry.
+- **Process:**
+    - Logged into my Docker Hub account from the command line using `docker login`.
+    - **Tagged** the local `hello-world-image` with the required registry format: `<docker-hub-id>/<repository>:<tag>` (e.g., `myusername/hello-world-image:v1.0`).
+    - **Pushed** the tagged image to my Docker Hub repository using `docker push`.
+    - Verified the process by removing the local image (`docker rmi`) and then running it again using its full Docker Hub name, which triggered a pull from the registry.
+- **Outcome:** My custom Docker image is now publicly available on Docker Hub, ready to be pulled and run on any machine with Docker installed, including cloud servers.
+
+## Business Value
+Using a container registry like Docker Hub is the standard way to distribute software. It enables CI/CD pipelines to automatically build and push new versions of an application, and production servers to pull and deploy the exact same artifact. This ensures a reliable, repeatable, and automated workflow from development to production.
