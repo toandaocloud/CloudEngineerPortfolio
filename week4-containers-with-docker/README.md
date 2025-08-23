@@ -50,3 +50,18 @@ To make my custom image shareable and accessible for deployment on any server, I
 
 ## Business Value
 Using a container registry like Docker Hub is the standard way to distribute software. It enables CI/CD pipelines to automatically build and push new versions of an application, and production servers to pull and deploy the exact same artifact. This ensures a reliable, repeatable, and automated workflow from development to production.
+
+## 5. Lab: Multi-container Applications with Docker Compose
+I learned to define and run multi-container Docker applications using **Docker Compose**.
+- **Process:**
+    - Created a simple Python Flask web application that connects to a Redis database to count page visits.
+    - Wrote a `Dockerfile` for the Python web application.
+    - Wrote a `docker-compose.yml` file to define two services:
+        1.  **`web`**: Built from the local Dockerfile.
+        2.  **`redis`**: Pulled from the official `redis:alpine` image on Docker Hub.
+    - Docker Compose automatically created a network, allowing the `web` container to connect to the `redis` container using its service name as the hostname.
+    - Launched the entire application stack with a single command: `docker-compose up`.
+- **Outcome:** Successfully ran a multi-service application locally, demonstrating a key workflow for developing complex applications.
+
+## Business Value
+Docker Compose is essential for local development and testing. It allows developers to spin up a complete, production-like environment on their own machine with one command. This drastically simplifies the setup process, ensures consistency among team members, and accelerates the development lifecycle.
