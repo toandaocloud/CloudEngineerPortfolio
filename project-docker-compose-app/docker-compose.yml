@@ -6,3 +6,7 @@ services:
    - "8000:5000"
  redis:
   image: "redis:alpine"
+  volumes:
+   - tidi:/data
+volumes:
+ tidi:

@@ -65,3 +65,20 @@ I learned to define and run multi-container Docker applications using **Docker C
 
 ## Business Value
 Docker Compose is essential for local development and testing. It allows developers to spin up a complete, production-like environment on their own machine with one command. This drastically simplifies the setup process, ensures consistency among team members, and accelerates the development lifecycle.
+
+---
+
+## 6. Lab: Persisting Data with Docker Volumes
+
+I addressed the ephemeral nature of containers by implementing **Docker Volumes** to ensure data persistence for stateful services.
+
+- **Process:**
+    - Identified that the Redis database (a stateful service) lost all its data whenever the container was recreated with `docker compose down`.
+    - Modified the `docker-compose.yml` file to include a top-level `volumes` section to declare a **named volume** (`redis-data`).
+    - Mounted this named volume into the `redis` service at its default data storage path (`/data`).
+
+- **Outcome:** Verified that the application's visitor counter data now persists across container restarts. This is a critical step towards making stateful applications production-ready.
+
+## Business Value
+
+Data persistence is non-negotiable for almost any real-world application (databases, user uploads, etc.). Understanding and correctly using Docker Volumes is a fundamental skill that demonstrates the ability to manage stateful services in a containerized environment. This prevents catastrophic data loss, ensures service continuity, and is a prerequisite for deploying reliable applications in production.
