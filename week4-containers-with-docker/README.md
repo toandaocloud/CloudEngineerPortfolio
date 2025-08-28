@@ -82,3 +82,20 @@ I addressed the ephemeral nature of containers by implementing **Docker Volumes*
 ## Business Value
 
 Data persistence is non-negotiable for almost any real-world application (databases, user uploads, etc.). Understanding and correctly using Docker Volumes is a fundamental skill that demonstrates the ability to manage stateful services in a containerized environment. This prevents catastrophic data loss, ensures service continuity, and is a prerequisite for deploying reliable applications in production.
+
+---
+
+## 7. Project: Optimizing the Development Workflow
+
+This project finalized the local development environment for the multi-container application by optimizing the developer workflow for speed and efficiency.
+
+- **Problem:** The previous setup required a full image rebuild and container restart for every code change, a slow and inefficient process.
+- **Solution:**
+    1.  **Bind Mount:** Implemented a bind mount in `docker-compose.yml` to mount the source code directory from the host machine directly into the `web` container. This ensures that code changes on the host are instantly reflected inside the container.
+    2.  **Environment Variable:** Used an environment variable (`FLASK_DEBUG=1`) to enable Flask's debug mode, which automatically reloads the web server whenever a code change is detected.
+
+- **Outcome:** Created a seamless "live-reload" development experience. Now, I can edit the Python code on my host machine, save the file, and the changes are applied in the running container within seconds, without any manual intervention.
+
+## Business Value
+
+A fast and efficient development loop is critical for engineering productivity. By implementing features like bind mounts and live-reloading, a company can significantly reduce the time developers spend waiting for builds and restarts. This directly translates to faster feature development, quicker bug fixes, and higher developer morale.
