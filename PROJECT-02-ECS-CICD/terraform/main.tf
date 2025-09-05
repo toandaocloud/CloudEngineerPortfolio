@@ -14,7 +14,7 @@ provider "aws" {
 
 # ========== INPUTS ==========
 locals {
-  project_name   = "ecs-cicd-demo"
+  project_name   = "ecs-cicd-tdcloud"
   container_port = 8000
 }
 
@@ -190,4 +190,3 @@ resource "aws_ecs_service" "svc" {
   depends_on = [aws_iam_role_policy_attachment.task_exec_attach]
   tags = { Name = "${local.project_name}-service" }
 }
-
