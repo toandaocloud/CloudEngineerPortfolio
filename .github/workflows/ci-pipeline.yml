@@ -1,0 +1,25 @@
+name: CI Pipeline for Visit Counter App
+
+on:
+  push:
+    branches: [ "main" ]
+    paths:
+      - 'project-docker-compose-app/**'
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: ./project-docker-compose-app
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: A simple test step
+        run: echo "Running a dummy test..."
+
+      - name: Build the Docker image
+        run: docker build . --file Dockerfile --tag my-app:latest
